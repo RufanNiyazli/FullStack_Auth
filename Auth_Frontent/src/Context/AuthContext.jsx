@@ -20,7 +20,6 @@ export const AuthProvider = ({ children }) => {
     try {
       console.log("AuthContext signIn - başlanğıc", credentials);
       
-      // Əmin olun ki, credentials formatı düzgündür
       const loginData = {
         username: credentials.username,
         password: credentials.password
@@ -31,7 +30,6 @@ export const AuthProvider = ({ children }) => {
       const response = await login(loginData);
       console.log("Login cavabı:", response.data);
       
-      // Əmin olaq ki, response.data-da lazımi sahələr var
       const { accessToken, refreshToken: newRefreshToken } = response.data;
       
       if (!accessToken) {
